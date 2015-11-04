@@ -10,30 +10,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
   <script src="script.js"></script>
   <meta charset="utf-8">
-  <title>Honework</title>
+  <script src="Chart.js"></script>
+  <title>Homework</title>
+  
 </head>
 <body ng-controller="AppController as appCtrl">
 	<div class="container">
+	<canvas id="myChart" width="500" height="500"></canvas>
 		<div class="row">
 			<div class="col-sm-8">
 				<table class="table">
-			  	<caption>Homeworks</caption>
+			  	<caption>Iot_mongoose</caption>
 			  	<thead>
 			      <tr>
 			        <th>#</th>
-			        <th>Name</th>
-			        <th>IP Address</th>
-			        <th>Submit At</th>
+			        <th>timestamp</th>
+			        <th>iot_id</th>
+			        <th>temperature</th>
+			        <th>relative_humidity</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	<tr ng-repeat="homework in appCtrl.homeworks">
+			    	<tr ng-repeat="iot in appCtrl.iot">
 				  		<td>{{$index}}</td>
-				  		<td>{{homework.name}}</td>
-				  		<td>
-				  			<a href="http://{{homework.ip_addr}}{{homework.port?':':''}}{{homework.port}}">http://{{homework.ip_addr}}{{homework.port?':':''}}{{homework.port}}</a>
-				  		</td>
-				  		<td>{{appCtrl.toThaiDateTime(homework.date)}}</td>
+				  		<td>{{appCtrl.timestamp}}</td>
+				  		<td>{{iot.iot_id}}</td>
+				  		<td>{{iot.temperature}}</td>
+				  		<td>{{iot.relative_humidity}}</td>
+
 				  	</tr>
 			    </tbody>
 			  </table>
@@ -41,16 +45,20 @@
 			<div class="col-sm-4">
 				<form ng-submit="appCtrl.submit(input)">
 				  <div class="form-group">
-				    <label>Name</label>
-				    <input type="text" ng-model="input.name" class="form-control" placeholder="Name">
+				    <label>timestamp</label>
+				    <input type="text" ng-model="input.timestamp" class="form-control" placeholder="Name">
 				  </div>
 				  <div class="form-group">
-				    <label >IP Address</label>
-				    <input type="text" ng-model="input.ip_addr" class="form-control" placeholder="IP Address">
+				    <label >iot_id</label>
+				    <input type="text" ng-model="input.iot_id" class="form-control" placeholder="IP Address">
 				  </div>
 				  <div class="form-group">
-				    <label >Port</label>
-				    <input type="text" ng-model="input.port" class="form-control" placeholder="Port">
+				    <label >temperature</label>
+				    <input type="text" ng-model="input.temperature" class="form-control" placeholder="Port">
+				  </div>
+				   <div class="form-group">
+				    <label >relative_humidity</label>
+				    <input type="text" ng-model="input.relative_humidity" class="form-control" placeholder="Port">
 				  </div>
 				  <button type="submit" class="btn btn-default">Add</button>
 				</form>

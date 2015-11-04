@@ -16,16 +16,16 @@ angular.module('app', [])
     }
 
     function getHomeworks () {
-      $http.get('/api/homework')
+      $http.get('/api/iot')
         .then(function success (response) {
-          vm.homeworks = response.data
+          vm.iot = response.data
         }, function error (response) {
           alert(response.data.message)
         })
     }
 
     function saveHomework (data) {
-      $http.post('/api/homework', data)
+      $http.post('/api/iot', data)
         .then(function success (response) {
           console.log(response)
           getHomeworks()

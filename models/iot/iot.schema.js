@@ -1,20 +1,26 @@
 ;(function () {
   'use strict'
-  var modelName = 'homework'
+  var modelName = 'iot'
   var mongoose = require('mongoose')
   var Schema = mongoose.Schema
 
   var schema = new Schema({
-    ip_addr: {
+    timestamp: {
       type: String,
       required: true
     },
-    port: Number,
-    name: {
+    iot_id:{
       type: String,
       required: true
     },
-    date: { type: Date, default: Date.now }
+    temperature: {
+      type: String,
+      required: true
+    },
+    relative_humidity: {
+      type: String,
+      required: true
+    },
   })
 
   module.exports = mongoose.model(modelName, schema)

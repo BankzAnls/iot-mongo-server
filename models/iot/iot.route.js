@@ -2,7 +2,7 @@
   'use strict'
   var express = require('express')
   var router = express.Router()
-  var Model = require('./homework.schema.js')
+  var Model = require('./iot.schema.js')
 
   router.get('/', function (req, res, next) {
     Model.find({}).exec(function (err, results) {

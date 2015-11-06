@@ -5,20 +5,17 @@
   var Schema = mongoose.Schema
 
   var schema = new Schema({
-    timestamp: {
-      type: String,
-      required: true
-    },
+    timestamp: { type : Date , default : Date.now},
     iot_id:{
-      type: String,
+      type: Number,
       required: true
     },
     temperature: {
-      type: String,
+      type: Number,
       required: true
     },
     relative_humidity: {
-      type: String,
+      type: Number,
       required: true
     },
   })

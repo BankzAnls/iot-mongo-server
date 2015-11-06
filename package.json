@@ -12,6 +12,7 @@
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "mongodb": "^2.0.47",
-    "mongoose": "^4.2.4"
+    "mongoose": "^4.2.4",
+    "node-restful": "^0.2.2"
   }
 }

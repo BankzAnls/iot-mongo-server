@@ -10,8 +10,10 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use('/', require('./models/member/memberapi.js'))
+
 var iot = require('./models/iot/iot.route.js')
-app.use('/api/iot', iot)
+app.use('/', iot)
 
 var server = app.listen(3000, function () {
   var host = server.address().address

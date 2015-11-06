@@ -11,17 +11,42 @@
   <script src="script.js"></script>
   <meta charset="utf-8">
   <script src="Chart.js"></script>
+    <script src="java.js"></script>
+        <script src="css.css"></script>
+
+
+	
+
   <title>Homework</title>
   
 </head>
 <body ng-controller="AppController as appCtrl">
-	<div class="container">
-	<canvas id="myChart" width="1200" height="500"></canvas>
+         <nav class="navbar navbar-default">
+			<div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                 </button>
+                    <a id="brand" class="navbar-brand" href="#">INTERNET OF THING</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="login.html">login</a></li>
+                        <li><a href="register.html">register</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+<!-- // -->
+<br>
+
+	<div class=container>
+	<!-- <button ng-click="appCtrl.toLog()">login</button>
+		<button ng-click="appCtrl.toRegister()">register</button> -->
 		<div class="row">
 			<div class="col-sm-8">
 				<table class="table">
-			  	<caption>Iot_mongoose</caption>
-			  	<thead>
+<!-- 			  	<caption>Iot_mongoose</caption>
+ -->			  	<thead>
 			      <tr>
 			        <th>#</th>
 			        <th>timestamp</th>
@@ -33,7 +58,7 @@
 			    <tbody>
 			    	<tr ng-repeat="iot in appCtrl.iot">
 				  		<td>{{$index}}</td>
-				  		<td>{{appCtrl.timestamp}}</td>
+				  		<td>{{appCtrl.toThaiDateTime(iot.timestamp)}}</td>
 				  		<td>{{iot.iot_id}}</td>
 				  		<td>{{iot.temperature}}</td>
 				  		<td>{{iot.relative_humidity}}</td>
@@ -44,10 +69,7 @@
 			</div>
 			<div class="col-sm-4">
 				<form ng-submit="appCtrl.submit(input)">
-				  <div class="form-group">
-				    <label>timestamp</label>
-				    <input type="text" ng-model="input.timestamp" class="form-control" placeholder="Name">
-				  </div>
+				 
 				  <div class="form-group">
 				    <label >iot_id</label>
 				    <input type="text" ng-model="input.iot_id" class="form-control" placeholder="IP Address">

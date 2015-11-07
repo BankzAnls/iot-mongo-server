@@ -26,10 +26,16 @@
                 </button>
                     <a id="brand" class="navbar-brand" href="#">INTERNET OF THING</a>
             </div>
+            <form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type = "search" ng-model ="search.iot_id"></input>
+	        </div>
+	   	</form>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="login.html">login</a></li>
                 <li><a href="register.html">register</a></li>
+          
             </ul>
         </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
@@ -54,7 +60,7 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	<tr ng-repeat="iot in appCtrl.iot">
+			    	<tr ng-repeat="iot in appCtrl.iot | filter : search">
 				  		<td>{{$index}}</td>
 				  		<td>{{appCtrl.toThaiDateTime(iot.timestamp)}}</td>
 				  		<td>{{iot.iot_id}}</td>
